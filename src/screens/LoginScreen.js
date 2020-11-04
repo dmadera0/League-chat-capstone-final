@@ -3,10 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import { Title } from 'react-native-paper';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
+import firebase from 'firebase'
 
 export default function LoginScreen({ navigation }) {
+    const [user, setUser] =useState(email, password)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
   
     return (
       <View style={styles.container}>
@@ -27,6 +30,7 @@ export default function LoginScreen({ navigation }) {
           title="Login"
           modeValue="contained"
           labelStyle={styles.loginButtonLabel}
+          onPress={()=>firebase.auth().signInWithEmailAndPassword(email,password),console.log("help")}
         />
         <FormButton
           title="New user? Join here"
